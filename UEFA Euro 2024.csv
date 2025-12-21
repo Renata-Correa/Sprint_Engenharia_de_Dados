@@ -1,6 +1,6 @@
 ﻿Player;Federation;Opponent;Stage;Matchday;Match Number;Minutes Played;Game Started;Substitute;Goals;Man of the Match;Date of Birth;Boot Brand;Boot Type;Boot Colour;Boot Version;Notes;ID Opta;Opta Position;Squad Number;Match Length;Exact Time
 Groß, Pascal;Germany;Scotland;Group Stage;1;1;45;0;1;0;0;1991-06-15;adidas;Copa Pure 2;Ftwr White/Lucid Blue/Solar Red;New;;60307;Midfielder;5;98;49
-Kimmich, Joshua;Germany;Scotland;Group Stage;1;1;90;1;0;0;0;1995-02-08;Nike;Mercurial Vapor XV Elite;"
+Kimmich, Joshua;Germany;Scotland;Group Stage;1;1;90;1;0;0;0;1995-02-08;Nike;Mercurial Vapor XV Elite;
 Pink Foam/Black";New;;165687;Defender;6;98;98
 Musiala, Jamal;Germany;Scotland;Group Stage;1;1;74;1;0;1;1;2003-02-26;Nike;Tiempo Legend X Elite;Pink Foam/Black;New;;244857;Midfielder;10;98;77
 Can, Emre;Germany;Scotland;Group Stage;1;1;10;0;1;1;0;1994-01-12;Nike;Mercurial Superfly IX Elite;Lemonade/Black;New;;112338;Midfielder;25;98;14
@@ -1593,4 +1593,5 @@ Kane, Harry;England;Spain;Final;7;51;61;1;0;0;0;1993-07-28;Skechers;SKX 01 Elite
 Guéhi, Marc;England;Spain;Final;7;51;90;1;0;0;0;2000-07-13;Nike;Phantom GX II Elite;Sunset Pulse/Black;New;;209036;Defender;6;96;96
 Bellingham, Jude;England;Spain;Final;7;51;90;1;0;0;0;2003-06-29;adidas;Predator Elite Tongue;Lucid Blue/Ftwr White/Solar Red;New;;244855;Midfielder;10;96;96
 Toney, Ivan;England;Spain;Final;7;51;1;0;1;0;0;1996-03-16;adidas;F50 Elite;Ftwr White/Solar Red/Lucid Blue;New;;144485;Forward;17;96;6
+
 
