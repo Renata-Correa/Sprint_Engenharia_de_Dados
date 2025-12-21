@@ -1,9 +1,6 @@
 # MVP - Sprint Engenharia de Dados
 PUC-Rio | Pós-Graduação em Ciencia de Dados e Analytics
 
-*Projeto desenvolvido para o Curso de Pós-Graduação em Ciência de Dados e Analytics – Sprint Engenharia de Dados da Pontifícia Universidade Católica do Rio de Janeiro (PUC/RJ), como requisito parcial para obtenção do título em Latu Sensu, sob a orientação dos Profs.: Victor Almeida e José Boaro.*
-
-
 # 📊 UEFA Euro 2024 — Chuteiras & Gols
 
 
