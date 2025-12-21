@@ -1,224 +1,249 @@
+# ⚽ Engenharia de Dados & Analytics — UEFA Euro 2024
+
 # MVP - Sprint Engenharia de Dados
 PUC-Rio | Pós-Graduação em Ciencia de Dados e Analytics
 
-# 📊 UEFA Euro 2024 — Chuteiras & Gols
+## 👩‍💻 Autora
 
+*Rê Corrêa* | Gerente de Projetos na act.3 | Engenharia de Dados | Analytics
 
-### 🎯 Objetivo do Trabalho
+Apaixonada por dados, pipelines bem feitos e dashboards que contam histórias 📊✨
 
-O objetivo deste projeto é construir um pipeline de dados em nuvem para analisar a relação entre **uso de chuteiras (adidas vs não adidas)** e **desempenho esportivo (gols)** na Eurocopa 2024.
+### **🎯 Objetivo do Projeto**
 
-A partir do dataset disponibilizado, busquei responder perguntas de negócio que conectam **marca esportiva, atletas, seleções e performance**, simulando um cenário real de análise em um **Data Warehouse moderno**.
+O objetivo deste trabalho é analisar a relação entre o **uso de marcas de chuteiras e o desempenho esportivo dos atletas na Eurocopa 2024**, utilizando dados estruturados armazenados em um ambiente de Data Warehouse.
 
-Problema a ser resolvido
+A partir da base `workspace_renatacorrea.data.uefa_euro_2024` (também disponível em [UEFA Euro 2024.csv ](https://raw.githubusercontent.com/Renata-Correa/Sprint_Engenharia_de_Dados/refs/heads/main/UEFA%20Euro%202024.csv)), busquei responder perguntas de negócio relacionadas a exposição de marcas esportivas, distribuição entre seleções e impacto direto na quantidade de gols marcados.
+
+**Problema a ser resolvido**
 
 *Existe alguma predominância ou impacto observável do uso de chuteiras adidas em relação a quantidade de atletas e gols marcados na Eurocopa 2024?*
 
-## ❓ Perguntas a serem respondidas
+## ❓ Perguntas a serem respondidas:
 
 1. Quantos atletas usam chuteira adidas?
 2. Quantos gols foram feitos com chuteiras adidas?
-3. Qual seleção tem mais jogadores que NÃO usam adidas?
+3. Qual seleção possui mais jogadores usando chuteiras que NÃO são adidas?
 4. Quantos gols foram feitos com chuteiras que não são adidas?
-5. Qual o total de modelos de chuteira utilizados no campeonato?
+5. Qual o total de modelos diferentes de chuteira utilizados no campeonato?
 
-## ☁️ Plataforma Utilizada
+### 🧱 Plataforma Utilizada
 
-- Databricks: Free Edition
-- Linguagem: Python (PySpark + Pandas quando necessário)
-- Armazenamento: Delta Lake
-- Arquitetura em camadas: Bronze / Silver / Gold
+- **☁️ Ambiente de Processamento**: Databricks Free Edition.
+- **🛠️ Linguagens:** SQL e Python.
+- **📚 Camada Analítica**: Apache Spark.
+- **📂 Armazenamento:** Data Lake / Data Warehouse.
+- **🔍 Fonte de Dados:** Base interna corporativa (act.3 Brasil – todos os direitos reservados).
 
-## 🔍 1. Busca pelos Dados
+### 🗂️ 1. Busca pelos Dados
 
-Os dados foram obtidos a partir de um repositório público no GitHub, disponibilizado em formato CSV.
+Os dados utilizados neste projeto são provenientes de uma base de dados interna, mantida pela empresa act.3 Brasil, contendo informações consolidadas sobre:
+- Atletas participantes da Eurocopa 2024.
+- Seleções.
+- Marcas e modelos de chuteiras.
+- Gols marcados durante a competição.
 
-📌 Fonte original:
+A base já se encontra armazenada no ambiente analítico, acessível via tabela:
+`workspace_renatacorrea.data.uefa_euro_2024`
 
-- Dataset: UEFA Euro 2024
-- Método de acesso: HTTP (raw GitHub)
+Você também pode encontrar o arquivo em [UEFA Euro 2024.csv](https://raw.githubusercontent.com/Renata-Correa/Sprint_Engenharia_de_Dados/refs/heads/main/UEFA%20Euro%202024.csv).
 
-Essa etapa garante:
+### 📥 2. Coleta
 
-- Rastreabilidade
-- Reprodutibilidade
-- Transparência da origem dos dados
+A coleta foi realizada por meio de ingestão controlada em ambiente corporativo, garantindo:
+- Integridade dos dados.
+- Padronização de estrutura.
+- Governança e controle de acesso.
 
-## 📥 2. Coleta dos Dados
+No Databricks, a coleta ocorre via leitura direta da tabela:
+`SELECT *
+FROM workspace_renatacorrea.data.uefa_euro_2024;`
 
-Na coleta, o arquivo CSV é ingerido diretamente no Databricks utilizando Spark.
+`sql
+SELECT *
+FROM workspace_renatacorrea.data.uefa_euro_2024;`
 
-**Estratégia adotada**
-- Leitura do CSV via spark.read
-- Definição explícita de schema (quando necessário)
-- Salvamento inicial como Delta Table (Bronze)
+### ⭐ 3. Modelagem de Dados - Esquema Estrela
 
-## 📦 Camada Bronze
+### 🎯 Tabela Fato - F_Goals
 
-- Dados brutos
-- Sem transformações
-- Apenas padronização mínima (encoding, separador, headers)
+Representa os eventos de gols marcados.
 
-## 🧱 3. Modelagem dos Dados
-
-**⭐ Modelo Dimensional - Esquema Estrela**
-
-O modelo foi desenhado no formato Star Schema, visando:
-- Melhor performance analítica
-- Facilidade de leitura
-- Compatibilidade com BI e SQL analítico
-
-### 📌 Tabela Fato
-
-Fato_Gols
-
-- id_atleta
-- id_partida
-- id_chuteira
-- quantidade_gols
+| Campo     | Tipo | Descrição               |
+| --------- | ---- | ----------------------- |
+| goal_id   | INT  | Identificador do evento |
+| player_id | INT  | FK do jogador           |
+| team_id   | INT  | FK da seleção           |
+| boot_id   | INT  | FK da chuteira          |
+| goals     | INT  | Quantidade de gols      |
 
 ### 📐 Tabelas Dimensão
 
-**Dim_Atleta**
-- id_atleta
-- nome_atleta
-- seleção
+**D_Player**
 
-**Dim_Chuteira**
-- id_chuteira
-- marca
-- modelo
-  
-**Dim_Partida**
-- id_partida
-- data
-- fase
-- seleção_a
-- seleção_b
+| Campo       | Tipo   | Domínio          |
+| ----------- | ------ | ---------------- |
+| player_id   | INT    | Chave substituta |
+| player_name | STRING | Nome do atleta   |
 
-## 📚 Catálogo de Dados
+**D_Team**
 
-**Dim_Atleta**
-*Atributo*
-- nome_atleta
-- seleção
+| Campo     | Tipo   | Domínio          |
+| --------- | ------ | ---------------- |
+| team_id   | INT    | Chave substituta |
+| team_name | STRING | Nome da seleção  |
 
-*Tipo*
-- String
+**D_Boot**
 
-*Domínio*
-- Texto
-- País participante
+| Campo      | Tipo   | Domínio                  |
+| ---------- | ------ | ------------------------ |
+| boot_id    | INT    | Chave substituta         |
+| boot_brand | STRING | adidas, nike, puma, etc. |
+| boot_model | STRING | Texto livre              |
 
-**Dim_Chuteira**
-*Atributo*
-- marca
-- modelo
-- marca_flag
+### 📖 Catálogo de Dados
 
-*Tipo*
-- String
-- Boolean
+| Atributo  | Tipo   | Domínio Esperado           |
+| --------- | ------ | -------------------------- |
+| Player    | STRING | Não nulo                   |
+| Team      | STRING | Lista de seleções          |
+| BootBrand | STRING | adidas, nike, puma, outras |
+| BootModel | STRING | Modelos comerciais         |
+| Goals     | INT    | 0 ≤ valor ≤ 5              |
 
-*Domínio*
-- adidas
-- nike
-- puma
-- etc
-- Texto
-- não adidas
+### 📊 Dados Numéricos
 
-**Fato_Gols**
- *Atributo*
-- quantidade_gols
+**Goals:**
+- mínimo esperado = 0
+- máximo esperado = 5
 
-*Tipo*
-- Integer
+### 🔗 Linhagem dos Dados
 
-*Domínio*
-- Min: 0
-- - Max esperado: 5
+- **Origem:** Base interna act.3 Brasil.
+- **Técnica de composição:** Consolidação de dados esportivos oficiais mais o enriquecimento com informações de equipamentos esportivos.
+- **Destino**: Data Warehouse corporativo acessado via Databricks.
 
-## 🔗 Linhagem dos Dados
+### 🔄 4. Carga — Pipeline ETL
 
-- Origem: CSV público no GitHub
-- Técnica: ingestão direta + normalização
-- Transformações: limpeza, deduplicação, criação de chaves substitutas
+**🔹 Extração**
+- Leitura direta da tabela bruta no ambiente corporativo.
 
-## 🚚 4. Carga (ETL)
+**🔹 Transformação**
 
-## 🔄 Pipeline ETL
-**Extração**
-- Leitura do CSV bruto
+Principais transformações aplicadas:
+- Padronização de texto (BootBrand).
+- Tratamento de valores nulos em Goals.
+- Remoção de duplicidades.
+- Normalização para modelo dimensional.
 
-**Transformação (Camada Silver)**
-- Padronização de marcas (upper, trim)
-- Criação de flag: is_adidas
-- Remoção de duplicatas
-- Normalização em dimensões
-- Criação de IDs surrogate
+`df = spark.sql(
+    "SELECT * FROM workspace_renatacorrea.data.uefa_euro_2024"
+)
+display(df)`
 
-**Carga (Camada Gold)**
-- Tabelas finais em Delta
-- Modelo estrela pronto para análise
+`from pyspark.sql.functions import initcap, trim, col`
 
-**📌 Aqui rola join, group by, agregações e conciliações entre atletas, gols e chuteiras.**
+`df = df.withColumn(
+    "BootBrand",
+    initcap(trim(col("BootBrand")))
+).fillna(
+    {"Goals": 0}
+)`
 
-## 📈 5. Análise
+**🔹 Carga**
 
-**a. Qualidade dos Dados**
-*Problemas identificados*
-- Nomes de marcas inconsistentes (Adidas, adidas, ADIDAS)
-- Possíveis valores nulos em modelo de chuteira
-- Atletas sem gols (valor 0 — ok, mas precisa atenção)
+Os dados transformados são carregados em tabelas analíticas otimizadas para consulta e visualização.
 
-*Tratativas*
-- Normalização de texto
-- Preenchimento de valores nulos como "Modelo não informado"
-- Validação de tipos numéricos
+### 📊 5. Análise de Dados
 
-**Conclusão**
-✅ Após tratamento, os dados estão aptos para análise sem viés significativo.
+**🧪 Qualidade de Dados**
 
-**b. Solução do Problema**
-📌 1. Quantos atletas usam chuteira adidas?
-- Contagem distinta de atletas onde marca = 'adidas'
+| Atributo  | Problema                | Solução               |
+| --------- | ----------------------- | --------------------- |
+| BootBrand | Inconsistência de texto | Normalização          |
+| Goals     | Valores nulos           | Substituição por zero |
+| Player    | Possível duplicidade    | Contagem distinta     |
 
-💬 Discussão:
-Mostra a presença de mercado da adidas entre atletas da Euro.
+✔️ Após tratamento, os dados tornam-se confiáveis para análise.
 
-📌 2. Quantos gols foram feitos com chuteiras adidas?
-- Soma de gols associados à marca adidas
+### 🧠 Solução do Problema
+🥾 Atletas usando chuteira adidas
 
-💬 Discussão:
-Ajuda a avaliar representatividade esportiva, não causalidade.
+`df = spark.sql(
+    """
+    SELECT COUNT(DISTINCT Player)
+    FROM workspace_renatacorrea.data.uefa_euro_2024
+    WHERE LOWER(`Boot Brand`) = 'adidas'
+    """
+)
+display(df)`
 
-📌 3. Qual seleção tem mais jogadores sem adidas?
-- Agrupamento por seleção
+⚽ Gols com chuteiras adidas
 
-Filtro marca != 'adidas'
+`df = spark.sql(
+    """
+    SELECT SUM(try_cast(Goals AS INT)) AS total_goals
+    FROM workspace_renatacorrea.data.uefa_euro_2024
+    WHERE LOWER(`Boot Brand`) = 'adidas'
+    """
+)
+display(df)`
 
-💬 Discussão:
-Indica diversidade de patrocínios por país.
+🏴 Seleção com mais jogadores sem adidas
 
-📌 4. Quantos gols foram feitos com chuteiras não adidas?
-- Soma de gols onde marca != 'adidas'
+`%sql
+SELECT 'Team', COUNT(DISTINCT Player) AS qtd
+FROM workspace_renatacorrea.data.uefa_euro_2024
+WHERE LOWER("Boot Brand") <> 'adidas'
+GROUP BY 'Team'
+ORDER BY qtd DESC;`
 
-💬 Discussão:
-Serve como contraponto direto à análise da adidas.
+⚽ Gols sem adidas
 
-📌 5. Total de modelos de chuteira
-- count(distinct modelo)
+`%sql
+SELECT SUM(try_cast(Goals AS DOUBLE))
+FROM workspace_renatacorrea.data.uefa_euro_2024
+WHERE LOWER(`Boot Brand`) <> 'adidas';`
 
-💬 Discussão:
-Mostra o nível de diversidade tecnológica no torneio.
+👟 Total de modelos
 
-## 🧠 Discussão Final
+`%sql
+SELECT COUNT(DISTINCT `Boot Type`) AS total_modelos
+FROM workspace_renatacorrea.data.uefa_euro_2024;`
+
+### 🚀 Como Executar o Projeto
+
+1. Crie uma conta no Databricks Free Edition.
+2. Faça upload do notebook .ipynb.
+3. Carregue o arquivo CSV na área de dados.
+4. Execute as células na ordem.
+5. Explore os dados e os insights.
+
+### 📈 Visualização (Dashboards)
+
+Recomenda-se o uso de:
+- Gráfico de barras: distribuição de marcas.
+- Tabela ranqueada: seleções por marca.
+- KPI cards: gols adidas vs não adidas.
+Essas visualizações podem ser criadas diretamente no Databricks SQL Dashboard.
+
+## 🧠 Análise Final
 A análise mostra que:
-- A adidas possui forte presença entre atletas
-- Os gols estão distribuídos entre marcas, sem evidência de superioridade técnica
-- Algumas seleções apresentam maior diversidade de patrocinadores
-- O modelo estrela facilitou MUITO a análise
+- A adidas domina o uso de chuteiras entre os atletas.
+- Os gols estão distribuídos entre marcas, sem evidência de superioridade técnica.
+- Algumas seleções apresentam maior diversidade de patrocinadores.
+- Grande variedade de modelos utilizados no torneio.
+- O modelo estrela facilitou MUITO a análise.
 
-## 📌 Conclusão geral:
+## 📈 Conclusão geral:
 O pipeline construído permitiu transformar dados brutos em insights claros, com qualidade, rastreabilidade e escalabilidade.
+
+A análise demonstra que, embora a adidas possua forte presença entre os atletas, outras marcas também exercem impacto significativo no desempenho das seleções, tanto em número de jogadores quanto em gols marcados.
+
+**O pipeline construído garante:**
+- Escalabilidade
+- Governança
+- Reprodutibilidade
+- Clareza analítica
+
+📸 Os prints do dashboard estão disponíveis na pasta /dashboard/screenshots. MVP_Engenharia_de_Dados_Documentação
