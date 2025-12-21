@@ -6,7 +6,7 @@ Musiala, Jamal;Germany;Scotland;Group Stage;1;1;74;1;0;1;1;2003-02-26;Nike;Tiemp
 Can, Emre;Germany;Scotland;Group Stage;1;1;10;0;1;1;0;1994-01-12;Nike;Mercurial Superfly IX Elite;Lemonade/Black;New;;112338;Midfielder;25;98;14
 Tah, Jonathan;Germany;Scotland;Group Stage;1;1;90;1;0;0;0;1996-02-11;adidas;Copa Pure 2;Ftwr White/Lucid Blue/Solar Red;New;;164454;Defender;4;98;98
 Wirtz, Florian;Germany;Scotland;Group Stage;1;1;63;1;0;1;0;2003-05-03;adidas;F50 Elite;Ftwr White/Solar Red/Lucid Blue;New;;494595;Midfielder;17;98;67
-Sané, Leroy;Germany;Scotland;Group Stage;1;1;27;0;1;0;0;1996-01-11;Nike;Mercurial Vapor XV Elite;"	
+Sané, Leroy;Germany;Scotland;Group Stage;1;1;27;0;1;0;0;1996-01-11;Nike;Mercurial Vapor XV Elite;
 Pink Foam/Black";New;;182156;Forward;19;98;32
 Rüdiger, Antonio;Germany;Scotland;Group Stage;1;1;90;1;0;OG;0;1993-03-03;Under Armour;Clone Magnetico Elite 3.0;Black;New;Customised the boot;102380;Defender;2;98;98
 Mittelstädt, Maximilian;Germany;Scotland;Group Stage;1;1;90;1;0;0;0;1997-03-18;Nike;Mercurial Vapor XV Elite;Lemonade/Black;New;;204335;Defender;18;98;98
@@ -14,12 +14,12 @@ Neuer, Manuel;Germany;Scotland;Group Stage;1;1;90;1;0;0;0;1986-03-27;adidas;Copa
 Andrich, Robert;Germany;Scotland;Group Stage;1;1;45;1;0;0;0;1994-09-22;Puma;Ultra Ultimate;Sun Stream/Puma Black/Sunset Glow;New;;147488;Midfielder;23;98;49
 Kroos, Toni;Germany;Scotland;Group Stage;1;1;80;1;0;0;0;1990-01-04;adidas;adiPure 11Pro;Cloud White/Core Black/Gold Metallic;New;;44989;Midfielder;8;98;84
 Havertz, Kai;Germany;Scotland;Group Stage;1;1;63;1;0;1;0;1999-06-11;Puma;Future 7 Ultimate;Sunset Glow/Puma Black/Sun Stream;New;;219847;Forward;7;98;66
-Füllkrug, Niclas;Germany;Scotland;Group Stage;1;1;27;0;1;1;0;1993-02-09;Nike;Mercurial Vapor XV Elite;"	
+Füllkrug, Niclas;Germany;Scotland;Group Stage;1;1;27;0;1;1;0;1993-02-09;Nike;Mercurial Vapor XV Elite;
 Pink Foam/Black";New;;91889;Forward;9;98;32
 Gündogan, Ilkay;Germany;Scotland;Group Stage;1;1;90;1;0;0;0;1990-10-24;adidas;Predator Elite;Lucid Blue/Ftwr White/Solar Red;New;;59859;Midfielder;21;98;98
 Müller, Thomas;Germany;Scotland;Group Stage;1;1;16;0;1;0;0;1989-09-13;adidas;F50 Elite;Ftwr White/Solar Red/Lucid Blue;New;;55634;Forward;13;98;21
 Gunn, Angus;Scotland;Germany;Group Stage;1;1;90;1;0;0;0;1996-01-22;Puma;Ultra Ultimate;Sun Stream/Puma Black/Sunset Glow;New;;107265;Goalkeeper;1;98;98
-Adams, Ché;Scotland;Germany;Group Stage;1;1;45;1;0;0;0;1996-07-13;Nike;Mercurial Vapor XV Elite;"
+Adams, Ché;Scotland;Germany;Group Stage;1;1;45;1;0;0;0;1996-07-13;Nike;Mercurial Vapor XV Elite;
 Pink Foam/Black";New;;200439;Forward;10;98;49
 Christie, Ryan;Scotland;Germany;Group Stage;1;1;82;1;0;0;0;1995-02-22;adidas;Copa Pure 2;Ftwr White/Lucid Blue/Solar Red;New;;158499;Midfielder;11;98;85
 McGinn, John;Scotland;Germany;Group Stage;1;1;67;1;0;0;0;1994-10-18;Nike;Phantom GX II Elite;White/Black/Metallic Gold Coin;New;;122806;Midfielder;7;98;71
@@ -28,7 +28,7 @@ McTominay, Scott;Scotland;Germany;Group Stage;1;1;90;1;0;0;0;1996-12-08;adidas;F
 Hanley, Grant;Scotland;Germany;Group Stage;1;1;45;0;1;0;0;1991-11-20;Nike;Tiempo Legend X Elite;Lemonade/Black/Metallic Gold Coin;New;;83428;Defender;5;98;49
 McGregor, Callum;Scotland;Germany;Group Stage;1;1;67;1;0;0;0;1993-06-14;Nike;Tiempo Legend X Elite;White/Black/Bright Crimson;New;;107695;Midfielder;8;98;71
 Robertson, Andy;Scotland;Germany;Group Stage;1;1;90;1;0;0;0;1994-03-11;Nike;Phantom GX II Elite;Sunset Pulse/Black;New;;122798;Defender;3;98;98
-Gilmour, Billy;Scotland;Germany;Group Stage;1;1;23;0;1;0;0;2001-06-11;adidas;Predator Elite Tongue;"
+Gilmour, Billy;Scotland;Germany;Group Stage;1;1;23;0;1;0;0;2001-06-11;adidas;Predator Elite Tongue;
 Lucid Blue/Ftwr White/Solar Red";New;;243568;Midfielder;14;98;27
 Shankland, Lawrence;Scotland;Germany;Group Stage;1;1;8;0;1;0;0;1995-08-10;adidas;Predator Elite;Lucid Blue/Ftwr White/Solar Red;New;;116084;Forward;9;98;13
 McLean, Kenny;Scotland;Germany;Group Stage;1;1;23;0;1;0;0;1992-01-08;adidas;Copa Pure 2;Ftwr White/Lucid Blue/Solar Red;New;;78607;Midfielder;23;98;27
@@ -1593,6 +1593,7 @@ Kane, Harry;England;Spain;Final;7;51;61;1;0;0;0;1993-07-28;Skechers;SKX 01 Elite
 Guéhi, Marc;England;Spain;Final;7;51;90;1;0;0;0;2000-07-13;Nike;Phantom GX II Elite;Sunset Pulse/Black;New;;209036;Defender;6;96;96
 Bellingham, Jude;England;Spain;Final;7;51;90;1;0;0;0;2003-06-29;adidas;Predator Elite Tongue;Lucid Blue/Ftwr White/Solar Red;New;;244855;Midfielder;10;96;96
 Toney, Ivan;England;Spain;Final;7;51;1;0;1;0;0;1996-03-16;adidas;F50 Elite;Ftwr White/Solar Red/Lucid Blue;New;;144485;Forward;17;96;6
+
 
 
 
