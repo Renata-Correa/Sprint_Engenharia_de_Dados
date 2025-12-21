@@ -167,6 +167,9 @@ Os dados transformados são carregados em tabelas analíticas otimizadas para co
 ✔️ Após tratamento, os dados tornam-se confiáveis para análise.
 
 ### 🧠 Solução do Problema
+
+[MVP_Engenharia_de_Dados_Documentação/prints/Dash interativo.png](https://github.com/Renata-Correa/Sprint_Engenharia_de_Dados/blob/main/MVP_Engenharia_de_Dados_Documenta%C3%A7%C3%A3o/prints/Dash%20interativo.png)
+
 🥾 Atletas usando chuteira adidas
 
 `df = spark.sql(
@@ -246,4 +249,4 @@ A análise demonstra que, embora a adidas possua forte presença entre os atleta
 - Reprodutibilidade
 - Clareza analítica
 
-📸 Os prints do dashboard estão disponíveis na pasta /dashboard/screenshots. MVP_Engenharia_de_Dados_Documentação
+📸 Os prints do dashboard estão disponíveis na pasta [MVP_Engenharia_de_Dados_Documentação/prints](https://github.com/Renata-Correa/Sprint_Engenharia_de_Dados/tree/main/MVP_Engenharia_de_Dados_Documenta%C3%A7%C3%A3o/prints).
