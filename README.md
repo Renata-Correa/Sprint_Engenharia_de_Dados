@@ -1,4 +1,4 @@
-# ⚽ Engenharia de Dados & Analytics — UEFA Euro 2024
+# ⚽ Engenharia de Dados & Analytics - UEFA Euro 2024
 
 # MVP - Sprint Engenharia de Dados
 PUC-Rio | Pós-Graduação em Ciencia de Dados e Analytics
